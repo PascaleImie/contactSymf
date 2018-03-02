@@ -44,14 +44,14 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="phoneNumber", type="string", length=255)
+     * @ORM\Column(name="phoneNumber", type="string", length=255, nullable=true)
      */
     private $phoneNumber;
 
@@ -64,7 +64,7 @@ class Contact
 
     public function __toString()
     {
-        return $this->email;
+        return $this->name.' '.$this->lastname;
     }
 
 

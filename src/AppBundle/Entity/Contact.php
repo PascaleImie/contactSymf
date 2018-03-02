@@ -56,12 +56,16 @@ class Contact
     private $phoneNumber;
 
     /**
-     * @var \DateTime
+     * @var date
      *
-     * @ORM\Column(name="birthday", type="datetime")
+     * @ORM\Column(name="birthday", type="date")
      */
     private $birthday;
 
+    public function __toString()
+    {
+        return $this->email;
+    }
 
 
     /**
@@ -87,6 +91,7 @@ class Contact
 
         return $this;
     }
+
 
     /**
      * Get name

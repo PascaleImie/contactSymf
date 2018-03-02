@@ -6,7 +6,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~
@@ -66,9 +66,35 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
+# EasyAdmin
 easy_admin:
     entities:
-        - AppBundle\Entity\Category
-        - AppBundle\Entity\Contact
+            Category:
+                class: AppBundle\Entity\Category
+            Contact:
+                class: AppBundle\Entity\Contact
+                form:
+                    fields:
+                        - name
+                        - lastname
+                        - { property: 'phoneNumber', type_options: { required: false } }
+                        - { property: 'email', type_options: { required: false } }
+                        - { property: 'birthday', type_options: { widget: 'single_text' } 'format': 'dd/MM/yyyy', 'attr': {'class': 'datepicker'}}
+                        - category
+                list:
+                    fields:
+                       - name
+                       - lastname
+                       - phoneNumber
+                       - email
+                       - { property: 'birthday', format: 'd/m/Y'}
+                       - category
+
+
+
+
     design:
         brand_color: '#1FC1AC'
+
+    site_name: Birthday Remember
+

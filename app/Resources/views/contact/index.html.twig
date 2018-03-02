@@ -24,7 +24,7 @@
                 <td>{{ contact.lastname }}</td>
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.phoneNumber }}</td>
-                <td>{% if contact.birthday %}{{ contact.birthday|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if contact.birthday %}{{ contact.birthday|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ contact.category }}</td>
                 <td>
                     <ul>

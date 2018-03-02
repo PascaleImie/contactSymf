@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
@@ -20,7 +21,9 @@ class ContactType extends AbstractType
             ->add('lastname')
             ->add('email')
             ->add('phoneNumber')
-            ->add('birthday', DateType::class, array('widget'=>'single_text'))
+            ->add('birthday',DateType::class, array(
+                'years'=>[2001,2002]
+            ))
             ->add('category');
     }/**
      * {@inheritdoc}
